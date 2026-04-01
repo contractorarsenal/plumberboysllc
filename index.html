@@ -317,6 +317,8 @@ section { padding: 100px 0; }
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
 .gallery-item { position: relative; overflow: hidden; border-radius: 3px; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+.gi-hero { grid-column: span 2; grid-row: span 2; height: 460px; }
+.gi-sm { height: 225px; }
 .gallery-item:hover img { transform: scale(1.06); }
 .gallery-caption {
   position: absolute; inset: 0; display: flex; align-items: flex-end;
@@ -491,64 +493,159 @@ footer { background: #03070f; border-top: 1px solid rgba(48,105,200,0.09); paddi
 /* RESPONSIVE */
 @media(max-width:1080px) {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-card { max-width: 520px; }
+  .hero-card { max-width: 560px; }
   .services-grid { grid-template-columns: repeat(2,1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 80px; }
   .about-img-inset { right: 0; }
   .about-badge { left: 0; }
   .gallery-grid { grid-template-columns: repeat(2,1fr); }
   .testimonials-grid { grid-template-columns: 1fr 1fr; }
-  .process-grid { grid-template-columns: 1fr; gap: 56px; }
-  .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .process-grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 40px; }
   .contact-grid { grid-template-columns: 1fr; }
   .cta-inner { grid-template-columns: 1fr; text-align: center; }
+  .cta-inner > div:last-child { align-items: center; }
   .s-header { grid-template-columns: 1fr; gap: 1.5rem; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > *:first-child { grid-column: 1 / -1; }
   .areas-grid { grid-template-columns: repeat(3,1fr); }
-  .community-grid { grid-template-columns: 1fr; gap: 48px; }
-  .creds-inner { gap: 16px; }
+  .community-grid { grid-template-columns: 1fr; gap: 40px; }
+  .creds-inner { gap: 20px; justify-content: center; }
   .cred-divider { display: none; }
 }
+
 @media(max-width:768px) {
+  /* NAV */
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .nav-right .btn:first-child { display: none; }
-  .nav-inner { padding: 0 18px; }
-  section { padding: 64px 0; }
-  .container { padding: 0 18px; }
-  #hero { align-items: flex-start; }
-  .hero-inner { padding: 100px 18px 60px; }
-  .hero-title { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .nav-right .btn { display: none !important; }
+  .nav-inner { padding: 0 16px; height: 64px; }
+  .nav-logo-img { height: 34px; }
+
+  /* ANNOUNCE */
+  .announce { padding: 7px 12px; }
+  .announce span { font-size: 0.68rem; letter-spacing: 0.12em; white-space: normal; text-align: center; display: block; line-height: 1.5; }
+
+  /* GLOBAL */
+  section { padding: 56px 0; }
+  .container { padding: 0 16px; }
+  .s-title { font-size: clamp(2.2rem, 9.5vw, 3.2rem); }
+  .s-header { margin-bottom: 36px; }
+  .s-body { font-size: 0.94rem; }
+
+  /* HERO */
+  #hero { align-items: flex-start; min-height: 100svh; }
+  .hero-inner { padding: 88px 16px 52px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-title { font-size: clamp(2.8rem, 11vw, 4.2rem); }
+  .hero-tagline { font-size: 0.96rem; margin: 14px 0 24px; }
   .hero-actions { flex-direction: column; gap: 10px; }
-  .hero-actions .btn { width: 100%; justify-content: center; }
-  .hero-trust { gap: 8px; }
+  .hero-actions .btn { width: 100%; justify-content: center; font-size: 0.88rem; padding: 15px 24px; }
+  .hero-trust { gap: 8px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; }
+  .trust-pill { padding: 7px 12px; }
+  .trust-text { font-size: 0.68rem; }
   .hero-card { max-width: 100%; }
+  .hero-eyebrow { padding: 6px 12px; margin-bottom: 16px; }
+  .hero-eyebrow-text { font-size: 0.64rem; letter-spacing: 0.16em; }
+
+  /* SERVICES */
   .services-grid { grid-template-columns: 1fr; gap: 0; }
-  .about-img-inset { right: 0; bottom: -20px; width: 130px; }
-  .about-img-inset img { height: 95px; }
-  .about-badge { top: -14px; left: 0; padding: 12px 16px; }
-  .about-badge-num { font-size: 2.2rem; }
-  .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 4px; }
+  .svc-card { padding: 28px 22px; }
+
+  /* ABOUT */
+  .about-grid { gap: 60px; }
+  .about-img-stack { margin-bottom: 12px; }
+  .about-img-inset { right: 0; bottom: -20px; width: 120px; }
+  .about-img-inset img { height: 86px; }
+  .about-badge { top: -14px; left: 0; padding: 10px 14px; }
+  .about-badge-num { font-size: 2rem; }
+  .about-badge-sub { font-size: 0.55rem; }
+
+  /* CREDENTIALS */
+  .creds-strip { padding: 28px 0; }
+  .creds-inner { gap: 0; display: grid; grid-template-columns: repeat(3,1fr); }
+  .cred-item { padding: 16px 10px; border-right: 1px solid rgba(48,105,200,0.1); border-bottom: 1px solid rgba(48,105,200,0.1); }
+  .cred-item:nth-child(3) { border-right: none; }
+  .cred-item:nth-last-child(-n+3) { border-bottom: none; }
+  .cred-val { font-size: 1.8rem; }
+  .cred-label { font-size: 0.58rem; letter-spacing: 0.14em; }
+  .cred-divider { display: none; }
+
+  /* GALLERY */
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+  .gi-hero, .gi-sm { height: 150px !important; grid-column: auto !important; grid-row: auto !important; }
+
+  /* STATS */
   .stats-grid { grid-template-columns: repeat(2,1fr); }
-  .stat-item { padding: 28px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .stat-item:nth-child(2) { border-right: 1px solid rgba(255,255,255,0.08) !important; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .areas-grid { grid-template-columns: repeat(2,1fr); }
-  .faq-grid { grid-template-columns: 1fr; }
-  .cta-section { padding: 60px 0; }
+  .stat-item { padding: 28px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
+  .testi-card { padding: 24px 20px; }
+
+  /* COMMUNITY */
+  .community-grid { gap: 32px; }
+  .community-img img { height: 280px; }
+
+  /* PROCESS */
+  .process-grid { gap: 40px; }
+  .why-panel { padding: 28px 22px; }
+  .tl-dot { width: 44px; height: 44px; font-size: 1rem; }
+
+  /* AREAS */
+  .areas-grid { grid-template-columns: repeat(2,1fr); gap: 8px; }
+  .area-chip { padding: 10px 14px; }
+
+  /* FAQ */
+  .faq-grid { gap: 32px; }
+  .faq-q { font-size: 0.88rem; padding: 16px 16px; }
+  .faq-a { font-size: 0.85rem; }
+
+  /* CTA */
+  .cta-section { padding: 56px 0; }
+  .cta-inner { gap: 2rem; }
+  .cta-inner > div:last-child { align-items: stretch; width: 100%; }
   .cta-inner .btn { width: 100%; justify-content: center; }
-  .contact-form-box { padding: 24px 18px; }
-  .form-row { grid-template-columns: 1fr; }
+  .cta-sub { font-size: 0.94rem; }
+
+  /* CONTACT */
+  .contact-form-box { padding: 24px 16px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .info-block { padding: 14px 16px; }
+
+  /* FOOTER */
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-grid > *:first-child { grid-column: auto; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .s-title { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .footer-logo-img { height: 40px; }
+  .footer-desc { font-size: 0.82rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+  footer { padding: 48px 0 24px; }
+
+  /* FLOATING CTA */
+  .floating-cta { bottom: 16px; right: 16px; }
+  .floating-cta .btn { padding: 13px 20px; font-size: 0.78rem; }
 }
-@media(max-width:420px) {
+
+@media(max-width:480px) {
+  .hero-title { font-size: clamp(2.5rem, 12.5vw, 3.2rem); }
+  .hero-trust { flex-direction: column; align-items: flex-start; gap: 7px; }
+  .areas-grid { grid-template-columns: 1fr 1fr; }
+  .creds-inner { grid-template-columns: repeat(2,1fr); }
+  .cred-item:nth-child(2) { border-right: none; }
+  .cred-item:nth-child(3) { border-right: 1px solid rgba(48,105,200,0.1); }
+  .cred-item:nth-last-child(-n+2) { border-bottom: none; }
+  .cred-item:nth-last-child(-n+3) { border-bottom: 1px solid rgba(48,105,200,0.1); }
+  .gallery-item { height: 130px !important; }
+}
+
+@media(max-width:360px) {
+  .hero-title { font-size: clamp(2.2rem, 13vw, 2.8rem); }
   .areas-grid { grid-template-columns: 1fr; }
-  .hero-trust { flex-direction: column; gap: 8px; }
+  .hero-eyebrow-text { font-size: 0.58rem; }
+  .announce span { font-size: 0.62rem; }
 }
 </style>
 </head>
@@ -852,23 +949,23 @@ footer { background: #03070f; border-top: 1px solid rgba(48,105,200,0.09); paddi
       <h2 class="s-title reveal rd1">Built <span class="ab">Right.</span><br>Every <span class="ar">Time.</span></h2>
     </div>
     <div class="gallery-grid reveal rd1">
-      <div class="gallery-item" style="height:460px;grid-column:span 2;grid-row:span 2;">
+      <div class="gallery-item gi-hero">
         <img src="https://github.com/user-attachments/assets/0432261d-a3e3-4c58-a55a-f5f23d85c9fc" alt="New construction plumbing rough-in" loading="lazy" />
         <div class="gallery-caption"><span>New Construction Rough-In</span></div>
       </div>
-      <div class="gallery-item" style="height:224px;">
+      <div class="gallery-item gi-sm">
         <img src="https://github.com/user-attachments/assets/1ff8e993-35eb-46e6-ab9d-62d5637739f9" alt="Dual water heater mechanical room" loading="lazy" />
         <div class="gallery-caption"><span>Dual Water Heater System</span></div>
       </div>
-      <div class="gallery-item" style="height:224px;">
+      <div class="gallery-item gi-sm">
         <img src="https://github.com/user-attachments/assets/7810e082-0d7d-4b92-a370-77619c1e13ba" alt="Pipe repair" loading="lazy" />
         <div class="gallery-caption"><span>Pipe Repair &amp; Replacement</span></div>
       </div>
-      <div class="gallery-item" style="height:224px;">
+      <div class="gallery-item gi-sm">
         <img src="https://github.com/user-attachments/assets/2c0983dc-a838-495a-9b1d-37fa6833cd3b" alt="Radiant floor heating install" loading="lazy" />
         <div class="gallery-caption"><span>Radiant Floor Heating</span></div>
       </div>
-      <div class="gallery-item" style="height:224px;">
+      <div class="gallery-item gi-sm">
         <img src="https://github.com/user-attachments/assets/94967ae4-6439-4890-9dd0-132490660661" alt="Community" loading="lazy" />
         <div class="gallery-caption"><span>Community First</span></div>
       </div>
