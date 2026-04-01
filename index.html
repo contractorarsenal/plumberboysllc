@@ -11,24 +11,24 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:      #0a0f1a;
-  --navy2:     #0e1524;
-  --navy3:     #121b2e;
-  --blue:      #1a2a4a;
-  --blue2:     #1e3460;
-  --steel:     #2a4a7a;
-  --sky:       #3a7bd5;
-  --sky-lt:    #5a9aef;
-  --red:       #c93030;
-  --red-lt:    #e04040;
-  --red-dk:    #a02020;
-  --cream:     #f0ede8;
+  --navy:      #08101e;
+  --navy2:     #0c1626;
+  --navy3:     #101e30;
+  --blue:      #162240;
+  --blue2:     #1a2e56;
+  --steel:     #243e6a;
+  --sky:       #3069c8;
+  --sky-lt:    #4e8ae0;
+  --red:       #bf2a2a;
+  --red-lt:    #d93c3c;
+  --red-dk:    #941e1e;
+  --cream:     #eeeae3;
   --white:     #ffffff;
-  --dim:       rgba(240,237,232,0.55);
-  --dim2:      rgba(240,237,232,0.3);
-  --border:    rgba(58,123,213,0.15);
-  --gold:      #c8a232;
-  --tr:        0.25s ease;
+  --dim:       rgba(238,234,227,0.55);
+  --dim2:      rgba(238,234,227,0.28);
+  --border:    rgba(48,105,200,0.14);
+  --gold:      #c09a28;
+  --tr:        0.22s ease;
 }
 
 html { scroll-behavior: smooth; }
@@ -40,25 +40,24 @@ body {
   overflow-x: hidden;
 }
 
-/* noise grain */
+/* grain overlay */
 body::before {
   content: '';
   position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.028; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.032; pointer-events: none; z-index: 9999;
 }
 
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 
-/* TYPE */
 .display { font-family: 'Bebas Neue', sans-serif; line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; }
 .condensed { font-family: 'Barlow Condensed', sans-serif; }
 
 .label {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.74rem; font-weight: 700;
   letter-spacing: 0.3em; text-transform: uppercase; color: var(--sky);
 }
 .label::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--sky); }
@@ -68,62 +67,69 @@ img { display: block; max-width: 100%; }
   display: inline-flex; align-items: center; gap: 9px;
   font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 14px 28px; border-radius: 3px; border: none; cursor: pointer;
+  padding: 14px 28px; border-radius: 2px; border: none; cursor: pointer;
   transition: all var(--tr); white-space: nowrap;
 }
 .btn-red { background: var(--red); color: #fff; }
-.btn-red:hover { background: var(--red-lt); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(201,48,48,0.45); }
-.btn-outline { background: transparent; border: 1.5px solid rgba(240,237,232,0.2); color: var(--cream); }
+.btn-red:hover { background: var(--red-lt); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(191,42,42,0.42); }
+.btn-outline { background: transparent; border: 1.5px solid rgba(238,234,227,0.18); color: var(--cream); }
 .btn-outline:hover { border-color: var(--sky); color: var(--sky-lt); transform: translateY(-2px); }
 .btn-sky { background: var(--sky); color: #fff; }
-.btn-sky:hover { background: var(--sky-lt); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(58,123,213,0.4); }
+.btn-sky:hover { background: var(--sky-lt); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(48,105,200,0.38); }
 
 /* ANNOUNCE */
 .announce {
   background: var(--red); padding: 9px 0; text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
 }
 .announce span {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase; color: #fff;
 }
 
 /* NAV */
 nav {
   position: sticky; top: 0; z-index: 200;
-  background: rgba(10,15,26,0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(58,123,213,0.12);
+  background: rgba(8,16,30,0.96);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(48,105,200,0.1);
   transition: box-shadow var(--tr);
 }
-nav.scrolled { box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
+nav.scrolled { box-shadow: 0 2px 48px rgba(0,0,0,0.7); }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 70px; padding: 0 28px; max-width: 1200px; margin: 0 auto;
+  height: 72px; padding: 0 28px; max-width: 1200px; margin: 0 auto;
 }
-.nav-logo { display: flex; flex-direction: column; line-height: 1; }
-.nav-logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.1em; color: #fff; }
-.nav-logo-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sky); margin-top: 1px; }
+
+/* Logo image in nav */
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1.05);
+}
+
 .nav-links { display: flex; gap: 2.4rem; list-style: none; }
 .nav-links a {
   font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 600;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(240,237,232,0.4); transition: color var(--tr);
+  color: rgba(238,234,227,0.38); transition: color var(--tr);
 }
 .nav-links a:hover { color: var(--cream); }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-.hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(240,237,232,0.6); border-radius: 2px; transition: var(--tr); }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(238,234,227,0.55); border-radius: 2px; transition: var(--tr); }
 
 /* MOBILE DRAWER */
 .mobile-drawer {
   display: none; position: fixed; inset: 0;
   background: var(--navy); z-index: 300;
-  flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem;
+  flex-direction: column; align-items: center; justify-content: center; gap: 2.6rem;
 }
 .mobile-drawer.open { display: flex; }
 .mobile-drawer a {
-  font-family: 'Bebas Neue', sans-serif; font-size: 3.4rem;
+  font-family: 'Bebas Neue', sans-serif; font-size: 3.6rem;
   letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--cream); transition: color var(--tr);
 }
@@ -141,21 +147,19 @@ nav.scrolled { box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%);
   min-width: 100%; min-height: 100%;
-  object-fit: cover;
+  object-fit: cover; opacity: 0.55;
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(170deg, rgba(6,10,20,0.96) 0%, rgba(8,14,26,0.82) 50%, rgba(8,14,26,0.55) 100%),
-    radial-gradient(ellipse 60% 70% at 70% 40%, rgba(26,52,96,0.3) 0%, transparent 65%);
+    linear-gradient(160deg, rgba(5,10,20,0.94) 0%, rgba(8,14,26,0.78) 45%, rgba(8,14,26,0.45) 100%),
+    radial-gradient(ellipse 55% 65% at 72% 38%, rgba(22,42,88,0.28) 0%, transparent 62%);
 }
-
-/* diagonal accent line */
+/* subtle diagonal scratch */
 .hero-overlay::after {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, transparent 48%, rgba(58,123,213,0.04) 50%, transparent 52%);
+  position: absolute; inset: 0;
+  background: linear-gradient(133deg, transparent 46%, rgba(48,105,200,0.035) 50%, transparent 54%);
 }
 
 .hero-inner {
@@ -163,74 +167,74 @@ nav.scrolled { box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
   width: 100%; padding: 130px 28px 90px;
   max-width: 1200px; margin: 0 auto;
 }
-.hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1fr 390px; gap: 64px; align-items: center; }
 
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
-  background: rgba(58,123,213,0.1); border: 1px solid rgba(58,123,213,0.3);
-  border-radius: 3px; padding: 7px 16px; margin-bottom: 22px;
+  background: rgba(48,105,200,0.09); border: 1px solid rgba(48,105,200,0.28);
+  border-radius: 2px; padding: 7px 16px; margin-bottom: 22px;
 }
-.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 1.8s ease-in-out infinite; flex-shrink: 0; }
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
-.hero-eyebrow-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sky-lt); }
+.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+.hero-eyebrow-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sky-lt); }
 
-.hero-title { font-size: clamp(3rem, 7.5vw, 8rem); color: #fff; margin-bottom: 8px; }
+.hero-title { font-size: clamp(3.2rem, 8vw, 8.5rem); color: #fff; margin-bottom: 8px; }
 .hero-title .accent-r { color: var(--red-lt); }
 .hero-title .accent-b { color: var(--sky-lt); }
 
-.hero-tagline { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: rgba(240,237,232,0.6); max-width: 480px; margin: 20px 0 34px; line-height: 1.75; }
+.hero-tagline { font-size: clamp(0.98rem, 1.8vw, 1.12rem); font-weight: 300; color: rgba(238,234,227,0.62); max-width: 500px; margin: 18px 0 32px; line-height: 1.78; }
 
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .hero-trust {
-  display: flex; gap: 20px; flex-wrap: wrap;
+  display: flex; gap: 18px; flex-wrap: wrap;
   margin-top: 44px; padding-top: 28px;
-  border-top: 1px solid rgba(240,237,232,0.08);
+  border-top: 1px solid rgba(238,234,227,0.07);
 }
 .trust-pill {
   display: flex; align-items: center; gap: 8px;
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 3px; padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 2px; padding: 8px 14px;
 }
-.trust-icon { font-size: 0.9rem; }
-.trust-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,232,0.55); }
+.trust-icon { font-size: 0.88rem; }
+.trust-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(238,234,227,0.5); }
 
 /* HERO CARD */
 .hero-card {
-  background: rgba(12,18,32,0.92);
-  border: 1px solid rgba(58,123,213,0.2);
+  background: rgba(10,18,34,0.94);
+  border: 1px solid rgba(48,105,200,0.18);
   border-top: 3px solid var(--red);
-  border-radius: 6px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-  backdrop-filter: blur(24px);
+  border-radius: 4px;
+  box-shadow: 0 36px 90px rgba(0,0,0,0.65), 0 2px 0 rgba(48,105,200,0.08);
+  backdrop-filter: blur(28px);
   overflow: hidden;
 }
-.hc-head { background: rgba(255,255,255,0.04); padding: 20px 24px; border-bottom: 1px solid rgba(58,123,213,0.12); }
+.hc-head { background: rgba(255,255,255,0.035); padding: 20px 24px; border-bottom: 1px solid rgba(48,105,200,0.1); }
 .hc-head h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #fff; margin-bottom: 2px; }
-.hc-head p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+.hc-head p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
 .hc-body { padding: 20px 24px; }
 .fg { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
-.fg label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.fg label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.26); }
 .fg input, .fg select {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px; padding: 11px 14px; color: #fff;
+  background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 3px; padding: 11px 14px; color: #fff;
   font-family: 'Barlow', sans-serif; font-size: 0.9rem; width: 100%; outline: none;
   transition: border-color var(--tr); -webkit-appearance: none; appearance: none;
 }
-.fg input::placeholder { color: rgba(255,255,255,0.2); }
-.fg input:focus, .fg select:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(58,123,213,0.1); }
-.fg select option { background: #0e1524; color: #fff; }
+.fg input::placeholder { color: rgba(255,255,255,0.18); }
+.fg input:focus, .fg select:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(48,105,200,0.09); }
+.fg select option { background: #0c1626; color: #fff; }
 .hc-body .btn { width: 100%; justify-content: center; margin-top: 4px; font-size: 0.82rem; padding: 13px; }
-.hc-note { text-align: center; margin-top: 8px; font-size: 0.68rem; color: rgba(255,255,255,0.18); }
+.hc-note { text-align: center; margin-top: 8px; font-size: 0.66rem; color: rgba(255,255,255,0.16); }
 
 /* MARQUEE */
-.marquee-wrap { background: var(--navy2); overflow: hidden; padding: 12px 0; border-top: 1px solid rgba(58,123,213,0.12); border-bottom: 1px solid rgba(58,123,213,0.12); }
-.marquee-track { display: flex; animation: marquee 28s linear infinite; width: max-content; }
+.marquee-wrap { background: var(--navy2); overflow: hidden; padding: 11px 0; border-top: 1px solid rgba(48,105,200,0.1); border-bottom: 1px solid rgba(48,105,200,0.1); }
+.marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
 .marquee-track:hover { animation-play-state: paused; }
 @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-.marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 24px; white-space: nowrap; }
-.marquee-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(240,237,232,0.35); }
+.marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 22px; white-space: nowrap; }
+.marquee-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(238,234,227,0.3); }
 .marquee-div { width: 4px; height: 4px; background: var(--red); border-radius: 50%; }
 
 /* SECTION SYSTEM */
@@ -242,102 +246,123 @@ section { padding: 100px 0; }
 .s-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6.5rem); line-height: 0.9; letter-spacing: 0.02em; color: var(--cream); text-transform: uppercase; }
 .s-title .ar { color: var(--red-lt); }
 .s-title .ab { color: var(--sky-lt); }
-.s-body { font-size: 1rem; font-weight: 300; color: var(--dim); line-height: 1.8; max-width: 480px; }
+.s-body { font-size: 1rem; font-weight: 300; color: var(--dim); line-height: 1.8; max-width: 500px; }
 
 .s-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 60px; }
 
 /* SERVICES GRID */
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(58,123,213,0.06); border: 1px solid rgba(58,123,213,0.1); border-radius: 6px; overflow: hidden; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(48,105,200,0.055); border: 1px solid rgba(48,105,200,0.09); border-radius: 4px; overflow: hidden; }
 .svc-card {
   background: var(--navy2); padding: 36px 28px; position: relative;
-  overflow: hidden; transition: background var(--tr), transform var(--tr); cursor: default;
-  border-right: 1px solid rgba(58,123,213,0.08);
-  border-bottom: 1px solid rgba(58,123,213,0.08);
+  overflow: hidden; transition: background var(--tr); cursor: default;
+  border-right: 1px solid rgba(48,105,200,0.07);
+  border-bottom: 1px solid rgba(48,105,200,0.07);
 }
 .svc-card:hover { background: var(--navy3); }
 .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background var(--tr); }
 .svc-card:nth-child(odd):hover::after { background: var(--red); }
 .svc-card:nth-child(even):hover::after { background: var(--sky); }
-.svc-num { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; color: rgba(255,255,255,0.025); position: absolute; bottom: -10px; right: 8px; line-height: 1; pointer-events: none; }
-.svc-icon { width: 46px; height: 46px; border-radius: 6px; background: rgba(58,123,213,0.1); border: 1px solid rgba(58,123,213,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 18px; transition: background var(--tr); }
+.svc-num { font-family: 'Bebas Neue', sans-serif; font-size: 5.8rem; color: rgba(255,255,255,0.02); position: absolute; bottom: -12px; right: 6px; line-height: 1; pointer-events: none; }
+.svc-icon { width: 46px; height: 46px; border-radius: 4px; background: rgba(48,105,200,0.09); border: 1px solid rgba(48,105,200,0.18); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 18px; transition: background var(--tr); }
 .svc-card:hover .svc-icon { background: var(--red); border-color: var(--red); }
-.svc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.02rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; margin-bottom: 10px; }
-.svc-desc { font-size: 0.87rem; font-weight: 300; color: var(--dim); line-height: 1.75; }
-.svc-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); transition: gap var(--tr), color var(--tr); }
+.svc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; margin-bottom: 10px; }
+.svc-desc { font-size: 0.87rem; font-weight: 300; color: var(--dim); line-height: 1.78; }
+.svc-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); transition: gap var(--tr), color var(--tr); }
 .svc-card:nth-child(even) .svc-link { color: var(--red-lt); }
 .svc-link:hover { gap: 10px; }
 
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .about-img-stack { position: relative; }
-.about-img-main { border-radius: 6px; overflow: hidden; aspect-ratio: 4/3; }
-.about-img-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.about-img-main { border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; }
+.about-img-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s ease; }
 .about-img-main:hover img { transform: scale(1.04); }
 .about-img-inset {
   position: absolute; bottom: -28px; right: -28px;
-  width: 180px; border-radius: 6px; overflow: hidden;
+  width: 180px; border-radius: 4px; overflow: hidden;
   border: 3px solid var(--navy);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+  box-shadow: 0 18px 52px rgba(0,0,0,0.65);
 }
 .about-img-inset img { width: 100%; height: 130px; object-fit: cover; }
 .about-badge {
   position: absolute; top: -20px; left: -20px;
   background: var(--red); color: #fff;
-  padding: 16px 20px; border-radius: 4px; text-align: center;
-  box-shadow: 0 8px 32px rgba(201,48,48,0.5);
+  padding: 16px 20px; border-radius: 3px; text-align: center;
+  box-shadow: 0 8px 32px rgba(191,42,42,0.5);
 }
 .about-badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; display: block; }
-.about-badge-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; }
+.about-badge-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; }
 
 .about-highlight {
-  background: rgba(58,123,213,0.07); border-left: 3px solid var(--sky);
-  border-radius: 0 4px 4px 0; padding: 14px 18px; margin: 20px 0 26px;
-  font-size: 0.92rem; color: var(--dim); font-style: italic; line-height: 1.7;
+  background: rgba(48,105,200,0.065); border-left: 3px solid var(--sky);
+  border-radius: 0 3px 3px 0; padding: 16px 18px; margin: 22px 0 28px;
+  font-size: 0.92rem; color: var(--dim); font-style: italic; line-height: 1.72;
 }
 .pillars { display: flex; flex-direction: column; margin-top: 24px; }
-.pillar { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(58,123,213,0.1); }
+.pillar { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(48,105,200,0.1); }
 .pillar:last-child { border-bottom: none; }
 .pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: var(--red-lt); line-height: 1; flex-shrink: 0; min-width: 2.2rem; }
-.pillar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; margin-bottom: 2px; }
+.pillar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; margin-bottom: 3px; }
 .pillar-body { font-size: 0.85rem; font-weight: 300; color: var(--dim); line-height: 1.65; }
 
-/* PHOTO GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-.gallery-item { position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 1; }
-.gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+/* CREDENTIALS STRIP */
+.creds-strip { background: var(--navy3); border-top: 1px solid rgba(48,105,200,0.1); border-bottom: 1px solid rgba(48,105,200,0.1); padding: 38px 0; }
+.creds-inner { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 24px; }
+.cred-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cred-val { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; line-height: 1; }
+.cred-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(238,234,227,0.35); }
+.cred-divider { width: 1px; height: 48px; background: rgba(48,105,200,0.15); }
+
+/* GALLERY */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 3px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
 .gallery-item:hover img { transform: scale(1.06); }
 .gallery-caption {
   position: absolute; inset: 0; display: flex; align-items: flex-end;
   padding: 14px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 58%);
   opacity: 0; transition: opacity var(--tr);
 }
 .gallery-item:hover .gallery-caption { opacity: 1; }
-.gallery-caption span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.gallery-caption span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
 
 /* STATS */
 .stats-strip { background: var(--red); padding: 0; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat-item { padding: 44px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.12); }
+.stat-item { padding: 46px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
 .stat-item:last-child { border-right: none; }
-.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 3.8rem); color: #fff; line-height: 1; margin-bottom: 4px; }
-.stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 4vw, 3.8rem); color: #fff; line-height: 1; margin-bottom: 5px; }
+.stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
 /* COMMUNITY */
 .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.community-img { border-radius: 6px; overflow: hidden; position: relative; }
-.community-img img { width: 100%; height: 420px; object-fit: cover; }
+.community-img { border-radius: 4px; overflow: hidden; position: relative; }
+.community-img img { width: 100%; height: 440px; object-fit: cover; }
 .community-overlay {
   position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 24px;
-  background: linear-gradient(to top, rgba(10,15,26,0.85) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(8,16,30,0.85) 0%, transparent 52%);
 }
 .community-tag {
   background: var(--red); color: #fff;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 7px 16px; border-radius: 3px;
+  padding: 7px 16px; border-radius: 2px;
 }
+
+/* TESTIMONIALS */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.testi-card {
+  background: var(--navy2); border: 1px solid rgba(48,105,200,0.1);
+  border-radius: 4px; padding: 28px 24px; position: relative;
+  transition: border-color var(--tr);
+}
+.testi-card:hover { border-color: rgba(48,105,200,0.25); }
+.testi-quote { font-size: 0.92rem; font-weight: 300; color: var(--dim); line-height: 1.78; margin-bottom: 18px; font-style: italic; }
+.testi-author { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky-lt); }
+.testi-loc { font-size: 0.76rem; color: rgba(238,234,227,0.25); margin-top: 2px; }
+.testi-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 10px; }
+.testi-card::before { content: '\201C'; font-family: Georgia, serif; font-size: 4rem; color: rgba(48,105,200,0.1); position: absolute; top: 8px; left: 18px; line-height: 1; }
 
 /* PROCESS */
 .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -346,117 +371,120 @@ section { padding: 100px 0; }
 .tl-marker { display: flex; flex-direction: column; align-items: center; }
 .tl-dot {
   width: 52px; height: 52px; border-radius: 50%;
-  background: var(--navy2); border: 2px solid rgba(58,123,213,0.2);
+  background: var(--navy2); border: 2px solid rgba(48,105,200,0.18);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--dim);
   flex-shrink: 0; transition: all var(--tr);
 }
-.tl-item:hover .tl-dot { border-color: var(--red); color: var(--red-lt); background: rgba(201,48,48,0.08); }
-.tl-line { width: 2px; flex: 1; background: rgba(58,123,213,0.12); margin: 8px 0; min-height: 32px; }
+.tl-item:hover .tl-dot { border-color: var(--red); color: var(--red-lt); background: rgba(191,42,42,0.07); }
+.tl-line { width: 2px; flex: 1; background: rgba(48,105,200,0.1); margin: 8px 0; min-height: 32px; }
 .tl-content { padding-bottom: 36px; }
 .tl-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; margin-bottom: 6px; }
 .tl-body { font-size: 0.87rem; font-weight: 300; color: var(--dim); line-height: 1.75; }
 
-.why-panel { background: var(--navy2); border: 1px solid rgba(58,123,213,0.15); border-top: 3px solid var(--sky); border-radius: 6px; padding: 36px 32px; }
-.why-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--sky-lt); margin-bottom: 24px; }
+.why-panel { background: var(--navy2); border: 1px solid rgba(48,105,200,0.14); border-top: 3px solid var(--sky); border-radius: 4px; padding: 36px 32px; }
+.why-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--sky-lt); margin-bottom: 24px; }
 .why-list { display: flex; flex-direction: column; }
-.why-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(58,123,213,0.1); }
+.why-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(48,105,200,0.08); }
 .why-item:last-child { border-bottom: none; }
-.why-check { width: 22px; height: 22px; border-radius: 50%; background: var(--sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 0.6rem; color: #fff; font-weight: 900; }
-.why-item-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; margin-bottom: 2px; }
+.why-check { width: 22px; height: 22px; border-radius: 50%; background: var(--sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 0.58rem; color: #fff; font-weight: 900; }
+.why-item-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.86rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; margin-bottom: 2px; }
 .why-item p { font-size: 0.82rem; font-weight: 300; color: var(--dim); line-height: 1.6; }
 
 /* AREAS */
 .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .area-chip {
-  background: var(--navy2); border: 1px solid rgba(58,123,213,0.12);
-  border-radius: 4px; padding: 12px 16px;
+  background: var(--navy2); border: 1px solid rgba(48,105,200,0.1);
+  border-radius: 3px; padding: 12px 16px;
   display: flex; align-items: center; gap: 10px;
   transition: all var(--tr);
 }
-.area-chip:hover { border-color: var(--sky); background: rgba(26,52,96,0.4); transform: translateY(-2px); }
+.area-chip:hover { border-color: var(--sky); background: rgba(22,42,80,0.38); transform: translateY(-2px); }
 .area-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
-.area-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); }
+.area-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); }
 
 /* FAQ */
 .faq-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
-.faq-list { display: flex; flex-direction: column; border: 1px solid rgba(58,123,213,0.12); border-radius: 6px; overflow: hidden; }
-.faq-item { border-bottom: 1px solid rgba(58,123,213,0.1); }
+.faq-list { display: flex; flex-direction: column; border: 1px solid rgba(48,105,200,0.1); border-radius: 4px; overflow: hidden; }
+.faq-item { border-bottom: 1px solid rgba(48,105,200,0.08); }
 .faq-item:last-child { border-bottom: none; }
 .faq-q {
   width: 100%; background: none; border: none; text-align: left;
   padding: 18px 20px; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 0.96rem; font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600;
   letter-spacing: 0.04em; text-transform: uppercase; color: var(--cream); transition: color var(--tr);
 }
 .faq-q:hover { color: var(--sky-lt); }
-.faq-arrow { width: 24px; height: 24px; border-radius: 50%; background: rgba(58,123,213,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--sky); font-size: 1rem; transition: transform 0.3s, background 0.2s; }
+.faq-arrow { width: 24px; height: 24px; border-radius: 50%; background: rgba(48,105,200,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--sky); font-size: 1rem; transition: transform 0.3s, background 0.2s; }
 .faq-item.open .faq-arrow { transform: rotate(45deg); background: var(--red); color: #fff; }
-.faq-a { font-size: 0.88rem; font-weight: 300; color: var(--dim); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 20px; }
-.faq-item.open .faq-a { max-height: 300px; padding: 0 20px 18px; }
+.faq-a { font-size: 0.87rem; font-weight: 300; color: var(--dim); line-height: 1.78; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 20px; }
+.faq-item.open .faq-a { max-height: 320px; padding: 0 20px 18px; }
 
 /* CTA */
 .cta-section { background: var(--navy2); position: relative; overflow: hidden; padding: 80px 0; }
 .cta-section::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 55% 80% at 80% 50%, rgba(201,48,48,0.1) 0%, transparent 65%);
+  background: radial-gradient(ellipse 52% 78% at 82% 50%, rgba(191,42,42,0.09) 0%, transparent 62%);
   pointer-events: none;
 }
 .cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; position: relative; z-index: 1; }
-.cta-title { font-size: clamp(2.5rem, 5.5vw, 5.5rem); line-height: 0.92; }
+.cta-title { font-size: clamp(2.6rem, 5.5vw, 5.5rem); line-height: 0.92; }
 .cta-sub { font-size: 1rem; font-weight: 300; color: var(--dim); margin-top: 1.2rem; max-width: 480px; line-height: 1.65; }
 
 /* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-.contact-form-box { background: var(--navy2); border: 1px solid rgba(58,123,213,0.15); border-top: 3px solid var(--red); border-radius: 6px; padding: 40px 34px; }
-.form-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #fff; margin-bottom: 26px; }
+.contact-form-box { background: var(--navy2); border: 1px solid rgba(48,105,200,0.14); border-top: 3px solid var(--red); border-radius: 4px; padding: 40px 34px; }
+.form-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #fff; margin-bottom: 26px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-full { grid-column: 1 / -1; }
 .contact-fg textarea {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(58,123,213,0.15);
-  border-radius: 4px; padding: 12px 14px; color: var(--cream);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(48,105,200,0.13);
+  border-radius: 3px; padding: 12px 14px; color: var(--cream);
   font-family: 'Barlow', sans-serif; font-size: 0.9rem; width: 100%; outline: none;
   min-height: 110px; resize: vertical; transition: border-color var(--tr);
 }
 .contact-fg textarea:focus { border-color: var(--sky); }
-.contact-fg textarea::placeholder { color: rgba(255,255,255,0.15); }
+.contact-fg textarea::placeholder { color: rgba(255,255,255,0.13); }
 
 .contact-info { display: flex; flex-direction: column; gap: 1.4rem; }
 .info-block {
-  background: var(--navy2); border: 1px solid rgba(58,123,213,0.12);
-  border-left: 3px solid var(--sky); border-radius: 4px; padding: 18px 20px;
+  background: var(--navy2); border: 1px solid rgba(48,105,200,0.1);
+  border-left: 3px solid var(--sky); border-radius: 3px; padding: 18px 20px;
   transition: border-left-color var(--tr), background var(--tr);
 }
-.info-block:hover { border-left-color: var(--red); background: rgba(22,30,52,0.6); }
-.info-block-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sky); margin-bottom: 5px; }
-.info-block-val { font-size: 0.95rem; font-weight: 400; color: var(--cream); }
+.info-block:hover { border-left-color: var(--red); background: rgba(18,26,46,0.55); }
+.info-block-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--sky); margin-bottom: 5px; }
+.info-block-val { font-size: 0.94rem; font-weight: 400; color: var(--cream); }
 .info-block-val a { color: var(--sky-lt); transition: color var(--tr); }
 .info-block-val a:hover { color: var(--red-lt); }
 
 /* FOOTER */
-footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); padding: 64px 0 28px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(58,123,213,0.1); }
-.footer-logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: #fff; display: block; margin-bottom: 2px; }
-.footer-logo-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sky); display: block; margin-bottom: 16px; }
-.footer-desc { font-size: 0.86rem; font-weight: 300; color: rgba(240,237,232,0.28); line-height: 1.85; max-width: 280px; margin-bottom: 20px; }
-.footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sky); margin-bottom: 18px; }
+footer { background: #03070f; border-top: 1px solid rgba(48,105,200,0.09); padding: 64px 0 28px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(48,105,200,0.09); }
+.footer-logo-img {
+  height: 52px; width: auto; object-fit: contain;
+  display: block; margin-bottom: 16px;
+  filter: brightness(0.92);
+}
+.footer-desc { font-size: 0.85rem; font-weight: 300; color: rgba(238,234,227,0.26); line-height: 1.88; max-width: 290px; margin-bottom: 20px; }
+.footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--sky); margin-bottom: 18px; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 0.86rem; font-weight: 300; color: rgba(240,237,232,0.28); transition: color var(--tr); }
+.footer-links a { font-size: 0.85rem; font-weight: 300; color: rgba(238,234,227,0.26); transition: color var(--tr); }
 .footer-links a:hover { color: var(--sky-lt); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 0.77rem; color: rgba(240,237,232,0.18); }
-.footer-dev { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,237,232,0.16); transition: color var(--tr); }
+.footer-copy { font-size: 0.76rem; color: rgba(238,234,227,0.16); }
+.footer-dev { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(238,234,227,0.15); transition: color var(--tr); }
 .footer-dev:hover { color: var(--sky); }
 
 /* FLOATING CTA */
 .floating-cta { position: fixed; bottom: 24px; right: 24px; z-index: 150; display: none; }
 .floating-cta.visible { display: block; }
-.floating-cta .btn { box-shadow: 0 8px 32px rgba(201,48,48,0.5); animation: pulse-btn 2.5s ease-in-out infinite; }
-@keyframes pulse-btn { 0%,100%{box-shadow:0 8px 32px rgba(201,48,48,0.5);} 50%{box-shadow:0 8px 56px rgba(201,48,48,0.75);} }
+.floating-cta .btn { box-shadow: 0 8px 32px rgba(191,42,42,0.48); animation: pulse-btn 2.8s ease-in-out infinite; }
+@keyframes pulse-btn { 0%,100%{box-shadow:0 8px 32px rgba(191,42,42,0.48);} 50%{box-shadow:0 8px 56px rgba(191,42,42,0.72);} }
 
 /* REVEAL */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22,0.61,0.36,1); }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22,0.61,0.36,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .rd1{transition-delay:0.1s;} .rd2{transition-delay:0.2s;} .rd3{transition-delay:0.3s;} .rd4{transition-delay:0.4s;}
 
@@ -469,7 +497,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   .about-img-inset { right: 0; }
   .about-badge { left: 0; }
   .gallery-grid { grid-template-columns: repeat(2,1fr); }
-  .gallery-item:first-child { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr; gap: 56px; }
   .faq-grid { grid-template-columns: 1fr; gap: 48px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -480,6 +508,8 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   .footer-grid > *:first-child { grid-column: 1 / -1; }
   .areas-grid { grid-template-columns: repeat(3,1fr); }
   .community-grid { grid-template-columns: 1fr; gap: 48px; }
+  .creds-inner { gap: 16px; }
+  .cred-divider { display: none; }
 }
 @media(max-width:768px) {
   .nav-links { display: none; }
@@ -490,7 +520,6 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   .container { padding: 0 18px; }
   #hero { align-items: flex-start; }
   .hero-inner { padding: 100px 18px 60px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .hero-title { font-size: clamp(2.6rem, 12vw, 4rem); }
   .hero-actions { flex-direction: column; gap: 10px; }
   .hero-actions .btn { width: 100%; justify-content: center; }
@@ -502,10 +531,10 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   .about-badge { top: -14px; left: 0; padding: 12px 16px; }
   .about-badge-num { font-size: 2.2rem; }
   .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 4px; }
-  .gallery-item:first-child { aspect-ratio: 1; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
-  .stat-item { padding: 28px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .stat-item:nth-child(2) { border-right: 1px solid rgba(255,255,255,0.1) !important; }
+  .stat-item { padding: 28px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:nth-child(2) { border-right: 1px solid rgba(255,255,255,0.08) !important; }
+  .testimonials-grid { grid-template-columns: 1fr; }
   .areas-grid { grid-template-columns: repeat(2,1fr); }
   .faq-grid { grid-template-columns: 1fr; }
   .cta-section { padding: 60px 0; }
@@ -538,6 +567,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   <button class="mobile-close" id="mobileClose">&times;</button>
   <a href="#services" onclick="closeDrawer()">Services</a>
   <a href="#about" onclick="closeDrawer()">About</a>
+  <a href="#gallery" onclick="closeDrawer()">Work</a>
   <a href="#process" onclick="closeDrawer()">Process</a>
   <a href="#areas" onclick="closeDrawer()">Areas</a>
   <a href="#contact" onclick="closeDrawer()" style="color:var(--red-lt)">Get a Quote</a>
@@ -545,15 +575,18 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 
 <!-- Announce -->
 <div class="announce">
-  <span>⚡ Emergency Plumbing Available &nbsp;·&nbsp; Chelan County WA &nbsp;·&nbsp; 21 Years Experience &nbsp;·&nbsp; Free Estimates</span>
+  <span>⚡ Emergency Plumbing Available &nbsp;·&nbsp; Chelan County WA &nbsp;·&nbsp; 21 Years Experience &nbsp;·&nbsp; Free Estimates &nbsp;·&nbsp; (509) 860-6455</span>
 </div>
 
 <!-- Nav -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <span class="nav-logo-main">Plumber Boys LLC</span>
-      <span class="nav-logo-sub">Chelan County, WA</span>
+    <a href="#">
+      <img
+        class="nav-logo-img"
+        src="https://github.com/user-attachments/assets/09ed5e59-b21d-4758-b45e-a99de78d3b2a"
+        alt="Plumber Boys LLC"
+      />
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -574,7 +607,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 <section id="hero">
   <div class="hero-video-wrap">
     <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-      <source src="https://github.com/user-attachments/assets/09ed5e59-b21d-4758-b45e-a99de78d3b2a" type="video/mp4" />
+      <source src="https://ivhxwbmlmqhqncbkjuou.supabase.co/storage/v1/object/public/dgo%20video/Plumber.mp4" type="video/mp4" />
     </video>
   </div>
   <div class="hero-overlay"></div>
@@ -583,13 +616,13 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       <div>
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          <span class="hero-eyebrow-text">Chelan County · Licensed & Insured · Since 2003</span>
+          <span class="hero-eyebrow-text">Chelan County &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Since 2003</span>
         </div>
         <h1 class="display hero-title">
           Real <span class="accent-b">Plumbers.</span><br>
           Real <span class="accent-r">Results.</span>
         </h1>
-        <p class="hero-tagline">Plumber Boys LLC has handled the toughest commercial, residential, and new construction jobs across Chelan County for over two decades. We show up, we do the work right, and we stand behind it.</p>
+        <p class="hero-tagline">Plumber Boys LLC has been fixing the hard stuff across Chelan County for over two decades. We do commercial builds, new construction, residential service, remodels, and emergency calls. We show up on time, we do it right, and we stand behind every job.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-red" style="font-size:0.85rem;padding:16px 32px;">Get a Free Estimate</a>
           <a href="tel:+15098606455" class="btn btn-outline" style="font-size:0.85rem;padding:16px 32px;">
@@ -598,9 +631,9 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
           </a>
         </div>
         <div class="hero-trust">
-          <div class="trust-pill"><span class="trust-icon">✓</span><span class="trust-text">Licensed & Insured</span></div>
-          <div class="trust-pill"><span class="trust-icon">🔧</span><span class="trust-text">21+ Years Experience</span></div>
-          <div class="trust-pill"><span class="trust-icon">🏗️</span><span class="trust-text">Commercial & Residential</span></div>
+          <div class="trust-pill"><span class="trust-icon">✓</span><span class="trust-text">Licensed &amp; Insured</span></div>
+          <div class="trust-pill"><span class="trust-icon">🔧</span><span class="trust-text">21+ Years</span></div>
+          <div class="trust-pill"><span class="trust-icon">🏗️</span><span class="trust-text">Commercial &amp; Residential</span></div>
           <div class="trust-pill"><span class="trust-icon">📍</span><span class="trust-text">Chelan County, WA</span></div>
         </div>
       </div>
@@ -608,7 +641,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       <div class="hero-card">
         <div class="hc-head">
           <h3>Get Your Free Estimate</h3>
-          <p>Same-day response. No pressure.</p>
+          <p>Same-day response. No pressure, no obligation.</p>
         </div>
         <div class="hc-body">
           <form id="heroForm" onsubmit="handleForm(event, this)">
@@ -631,7 +664,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
             <div class="fg"><label>City</label><input type="text" placeholder="Entiat, Chelan, Wenatchee..." /></div>
             <button type="submit" class="btn btn-red">Send My Request</button>
           </form>
-          <p class="hc-note">Free estimate. No obligation. We respond fast.</p>
+          <p class="hc-note">We respond fast. Usually same day.</p>
         </div>
       </div>
     </div>
@@ -672,15 +705,51 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
         <p class="label reveal">What We Do</p>
         <h2 class="s-title reveal rd1">Our<br><span class="ar">Services</span></h2>
       </div>
-      <p class="s-body reveal rd2">Residential, commercial, new construction, and remodels. If it involves pipes, water, or heat, we handle it. Licensed, insured, and backed by 21 years of experience in Chelan County.</p>
+      <p class="s-body reveal rd2">Residential, commercial, new construction, and remodels. If it involves pipes, water, or heat we handle it. No guesswork, no callbacks to explain what was done. Licensed, insured, and 21 years deep in Chelan County.</p>
     </div>
     <div class="services-grid">
-      <div class="svc-card reveal"><span class="svc-num">01</span><div class="svc-icon">🔥</div><div class="svc-name">Water Heaters</div><p class="svc-desc">Tank and tankless installs, replacements, and repairs. We size it right for your home or commercial property the first time.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
-      <div class="svc-card reveal rd1"><span class="svc-num">02</span><div class="svc-icon">🚨</div><div class="svc-name">Emergency Service</div><p class="svc-desc">Leaks, breaks, or no water when you need it. We move fast and fix it right so you can get back to normal.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
-      <div class="svc-card reveal rd2"><span class="svc-num">03</span><div class="svc-icon">🏗️</div><div class="svc-name">New Construction</div><p class="svc-desc">Full rough-in and finish plumbing for new residential and commercial builds. We work with your timeline and your GC.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
-      <div class="svc-card reveal"><span class="svc-num">04</span><div class="svc-icon">🔨</div><div class="svc-name">Remodels</div><p class="svc-desc">Kitchen, bathroom, commercial remodels. Rough-in to finish. We coordinate with other trades and keep the project moving.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
-      <div class="svc-card reveal rd1"><span class="svc-num">05</span><div class="svc-icon">🌡️</div><div class="svc-name">Radiant Floor Heating</div><p class="svc-desc">Hydronic radiant systems designed and installed for maximum efficiency. Comfortable heat, lower bills, no forced air.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
-      <div class="svc-card reveal rd2"><span class="svc-num">06</span><div class="svc-icon">🏢</div><div class="svc-name">Commercial Plumbing</div><p class="svc-desc">Full-service commercial plumbing for businesses, restaurants, industrial facilities, and multi-unit residential properties.</p><a href="#contact" class="svc-link">Get Quote →</a></div>
+      <div class="svc-card reveal">
+        <span class="svc-num">01</span>
+        <div class="svc-icon">🔥</div>
+        <div class="svc-name">Water Heaters</div>
+        <p class="svc-desc">Tank and tankless installs, replacements, and repairs. We size it correctly for your property from the start and make sure it's running at full efficiency before we leave.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
+      <div class="svc-card reveal rd1">
+        <span class="svc-num">02</span>
+        <div class="svc-icon">🚨</div>
+        <div class="svc-name">Emergency Service</div>
+        <p class="svc-desc">Leaks, broken pipes, or no water when you need it most. We move fast. When something goes wrong with your plumbing it's never convenient and we treat it that way.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
+      <div class="svc-card reveal rd2">
+        <span class="svc-num">03</span>
+        <div class="svc-icon">🏗️</div>
+        <div class="svc-name">New Construction</div>
+        <p class="svc-desc">Full rough-in and finish plumbing for new residential and commercial builds. We coordinate with your GC, hit your timeline, and don't leave gaps for the next trade to deal with.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
+      <div class="svc-card reveal">
+        <span class="svc-num">04</span>
+        <div class="svc-icon">🔨</div>
+        <div class="svc-name">Remodels</div>
+        <p class="svc-desc">Kitchen and bathroom remodels from rough-in to finish. We work with other trades, keep the project moving, and don't leave you with half-finished work waiting on parts.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
+      <div class="svc-card reveal rd1">
+        <span class="svc-num">05</span>
+        <div class="svc-icon">🌡️</div>
+        <div class="svc-name">Radiant Floor Heating</div>
+        <p class="svc-desc">Hydronic radiant systems designed and installed for efficiency and longevity. Even heat, lower energy costs, and no forced air pushing dust around. A proper setup done right the first time.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
+      <div class="svc-card reveal rd2">
+        <span class="svc-num">06</span>
+        <div class="svc-icon">🏢</div>
+        <div class="svc-name">Commercial Plumbing</div>
+        <p class="svc-desc">Full-service commercial plumbing for businesses, restaurants, industrial facilities, and multi-unit residential. We know commercial timelines and we don't hold up your operation.</p>
+        <a href="#contact" class="svc-link">Get Quote →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -691,10 +760,10 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
     <div class="about-grid">
       <div class="about-img-stack reveal">
         <div class="about-img-main">
-          <img src="https://github.com/user-attachments/assets/025fdc7e-4a4b-4a7c-9a4c-9a08dd2a1a83" alt="Plumber Boys LLC team" loading="lazy" />
+          <img src="https://github.com/user-attachments/assets/025fdc7e-4a4b-4a7c-9a4c-9a08dd2a1a83" alt="Plumber Boys LLC crew" loading="lazy" />
         </div>
         <div class="about-img-inset">
-          <img src="https://github.com/user-attachments/assets/94967ae4-6439-4890-9dd0-132490660661" alt="Plumber Boys community" loading="lazy" />
+          <img src="https://github.com/user-attachments/assets/94967ae4-6439-4890-9dd0-132490660661" alt="Community involvement" loading="lazy" />
         </div>
         <div class="about-badge">
           <span class="about-badge-num">21+</span>
@@ -704,13 +773,31 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       <div>
         <p class="label reveal">Who We Are</p>
         <h2 class="s-title reveal rd1" style="font-size:clamp(2.4rem,5vw,5rem);margin-bottom:20px;">Locally <span class="ab">Owned.</span><br><span class="ar">Community</span> Built.</h2>
-        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:12px;" class="reveal rd2">We're a locally owned plumbing company serving Chelan County. With over 21 years of experience in commercial, new residential, remodel, and service work, we've built a reputation on doing the job right without cutting corners.</p>
-        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;" class="reveal rd2">We're invested in this community. You'll see us sponsoring local youth sports, showing up at community events, and taking care of our neighbors when something goes wrong. That's what a local business looks like.</p>
-        <blockquote class="about-highlight reveal rd3">"Plumber Boys showed up same day, diagnosed the issue fast, and had everything working before dinner. These guys know their stuff." — Local homeowner</blockquote>
+        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.82;margin-bottom:14px;" class="reveal rd2">We're a locally owned plumbing company based in Chelan County. Over 21 years we've built our name on commercial builds, new residential construction, remodel work, and service calls across the whole county. People call us back because we don't cut corners and we don't make excuses.</p>
+        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.82;" class="reveal rd2">We're also invested in this community beyond the job. You'll see us sponsoring local youth sports leagues, showing up at community events, and taking care of neighbors when something breaks at the worst possible time. That's just what it means to be a local business here.</p>
+        <blockquote class="about-highlight reveal rd3">"Plumber Boys showed up same day, diagnosed the issue fast, and had everything back up and running before dinner. These guys know their stuff and they don't mess around." — Local homeowner, Wenatchee</blockquote>
         <div class="pillars reveal rd4">
-          <div class="pillar"><div class="pillar-num">01</div><div><div class="pillar-title">21 Years Experience</div><p class="pillar-body">Commercial, residential, new construction, and service. We've done it all across Chelan County.</p></div></div>
-          <div class="pillar"><div class="pillar-num">02</div><div><div class="pillar-title">No Shortcuts</div><p class="pillar-body">We tell you what's wrong and what it actually takes to fix it. No upsells, no runaround.</p></div></div>
-          <div class="pillar"><div class="pillar-num">03</div><div><div class="pillar-title">Local Community</div><p class="pillar-body">We sponsor little league, know our neighbors, and take pride in the community we serve.</p></div></div>
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <div>
+              <div class="pillar-title">21 Years of Real Work</div>
+              <p class="pillar-body">Commercial, residential, new builds, service calls. We've handled it all across Chelan County without shortcuts.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <div>
+              <div class="pillar-title">Straight Talk, No Fluff</div>
+              <p class="pillar-body">We tell you what's wrong and what it takes to fix it. No manufactured urgency, no upsells you don't need.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <div>
+              <div class="pillar-title">Part of This Community</div>
+              <p class="pillar-body">We sponsor little league, know our neighbors by name, and take pride in every job because our reputation here matters.</p>
+            </div>
+          </div>
         </div>
         <div style="margin-top:2rem" class="reveal">
           <a href="#contact" class="btn btn-red">Start a Project</a>
@@ -720,6 +807,43 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   </div>
 </section>
 
+<!-- CREDENTIALS STRIP -->
+<div class="creds-strip">
+  <div class="container">
+    <div class="creds-inner">
+      <div class="cred-item">
+        <div class="cred-val">21+</div>
+        <div class="cred-label">Years in Business</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <div class="cred-val">100%</div>
+        <div class="cred-label">Licensed &amp; Insured</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <div class="cred-val">3</div>
+        <div class="cred-label">Trade Types</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <div class="cred-val">Free</div>
+        <div class="cred-label">Estimates Always</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <div class="cred-val">Same Day</div>
+        <div class="cred-label">Response</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <div class="cred-val">WA</div>
+        <div class="cred-label">State Licensed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- GALLERY -->
 <section class="s-bg-dark" id="gallery">
   <div class="container">
@@ -728,8 +852,8 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       <h2 class="s-title reveal rd1">Built <span class="ab">Right.</span><br>Every <span class="ar">Time.</span></h2>
     </div>
     <div class="gallery-grid reveal rd1">
-      <div class="gallery-item" style="grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:460px;">
-        <img src="https://github.com/user-attachments/assets/0432261d-a3e3-4c58-a55a-f5f23d85c9fc" alt="New construction plumbing" loading="lazy" />
+      <div class="gallery-item" style="height:460px;grid-column:span 2;grid-row:span 2;">
+        <img src="https://github.com/user-attachments/assets/0432261d-a3e3-4c58-a55a-f5f23d85c9fc" alt="New construction plumbing rough-in" loading="lazy" />
         <div class="gallery-caption"><span>New Construction Rough-In</span></div>
       </div>
       <div class="gallery-item" style="height:224px;">
@@ -737,15 +861,15 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
         <div class="gallery-caption"><span>Dual Water Heater System</span></div>
       </div>
       <div class="gallery-item" style="height:224px;">
-        <img src="https://github.com/user-attachments/assets/7810e082-0d7d-4b92-a370-77619c1e13ba" alt="Pipe repair on floor" loading="lazy" />
-        <div class="gallery-caption"><span>Pipe Repair & Replacement</span></div>
+        <img src="https://github.com/user-attachments/assets/7810e082-0d7d-4b92-a370-77619c1e13ba" alt="Pipe repair" loading="lazy" />
+        <div class="gallery-caption"><span>Pipe Repair &amp; Replacement</span></div>
       </div>
       <div class="gallery-item" style="height:224px;">
-        <img src="https://github.com/user-attachments/assets/2c0983dc-a838-495a-9b1d-37fa6833cd3b" alt="Radiant floor heating" loading="lazy" />
+        <img src="https://github.com/user-attachments/assets/2c0983dc-a838-495a-9b1d-37fa6833cd3b" alt="Radiant floor heating install" loading="lazy" />
         <div class="gallery-caption"><span>Radiant Floor Heating</span></div>
       </div>
       <div class="gallery-item" style="height:224px;">
-        <img src="https://github.com/user-attachments/assets/94967ae4-6439-4890-9dd0-132490660661" alt="Community involvement" loading="lazy" />
+        <img src="https://github.com/user-attachments/assets/94967ae4-6439-4890-9dd0-132490660661" alt="Community" loading="lazy" />
         <div class="gallery-caption"><span>Community First</span></div>
       </div>
     </div>
@@ -757,15 +881,45 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item"><div class="stat-num">21+</div><div class="stat-label">Years in Business</div></div>
-      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Licensed & Insured</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Licensed &amp; Insured</div></div>
       <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Trade Types Covered</div></div>
       <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">Estimates Always</div></div>
     </div>
   </div>
 </div>
 
+<!-- TESTIMONIALS -->
+<section class="s-bg-mid" id="reviews">
+  <div class="container">
+    <div style="margin-bottom:52px;">
+      <p class="label reveal" style="margin-bottom:14px;">What People Say</p>
+      <h2 class="s-title reveal rd1">Neighbors <span class="ab">Trust</span><br>the <span class="ar">Work.</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Called on a Friday afternoon with a water heater that gave out. They showed up within a few hours, had the right unit on the truck, and it was done before dark. No drama, clean work area, fair price.</p>
+        <div class="testi-author">Mike R.</div>
+        <div class="testi-loc">Wenatchee, WA</div>
+      </div>
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Used Plumber Boys for a full bathroom remodel rough-in. They showed up every day they said they would, coordinated with my tile guy without issues, and the inspection passed first try. That's what I pay for.</p>
+        <div class="testi-author">Sarah K.</div>
+        <div class="testi-loc">Chelan, WA</div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">We've used them on three commercial builds now. They're one of the few subs in the county that hits their schedules and communicates when something changes. That alone puts them in a different category.</p>
+        <div class="testi-author">Dan W.</div>
+        <div class="testi-loc">East Wenatchee, WA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMMUNITY -->
-<section class="s-bg-mid">
+<section class="s-bg-dark">
   <div class="container">
     <div class="community-grid">
       <div class="community-img reveal">
@@ -777,8 +931,8 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       <div>
         <p class="label reveal" style="margin-bottom:18px;">Beyond the Job</p>
         <h2 class="s-title reveal rd1" style="font-size:clamp(2.2rem,4.5vw,4.5rem);margin-bottom:20px;">We're <span class="ab">Neighbors</span> First.</h2>
-        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:14px;" class="reveal rd2">We don't just work in Chelan County. We live here. We sponsor local youth sports, we show up at community events, and we care about the people we're working for.</p>
-        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;" class="reveal rd2">When you hire Plumber Boys, you're not just getting a plumber. You're keeping dollars in the community and supporting a business that invests back into the same neighborhoods we serve.</p>
+        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.82;margin-bottom:14px;" class="reveal rd2">We don't just work in Chelan County. We live here. Our kids go to school here. We sponsor local youth sports leagues, show up at community events, and genuinely care about the people we're doing work for.</p>
+        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.82;" class="reveal rd2">When you hire Plumber Boys you're not calling some out-of-area company that won't remember your name next year. You're keeping money in the community and working with a crew that has something real at stake in how the job gets done.</p>
         <div style="margin-top:2rem;" class="reveal rd3">
           <a href="#contact" class="btn btn-sky">Work With a Neighbor →</a>
         </div>
@@ -788,43 +942,95 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 </section>
 
 <!-- PROCESS -->
-<section class="s-bg-dark" id="process">
+<section class="s-bg-mid" id="process">
   <div class="container">
     <div class="process-grid">
       <div>
         <p class="label reveal" style="margin-bottom:18px;">How It Works</p>
-        <h2 class="s-title reveal rd1" style="font-size:clamp(2.4rem,5vw,5rem);margin-bottom:48px;">From First Call to <span class="ar">Job Done</span></h2>
+        <h2 class="s-title reveal rd1" style="font-size:clamp(2.4rem,5vw,5rem);margin-bottom:48px;">From First Call<br>to <span class="ar">Job Done</span></h2>
         <div class="timeline">
           <div class="tl-item reveal">
             <div class="tl-marker"><div class="tl-dot">01</div><div class="tl-line"></div></div>
-            <div class="tl-content"><div class="tl-title">Call or Request Online</div><p class="tl-body">Give us a call or submit a request. We'll get back to you the same day to discuss the project and schedule a visit.</p></div>
+            <div class="tl-content">
+              <div class="tl-title">Call or Request Online</div>
+              <p class="tl-body">Give us a call or fill out the form. We'll get back to you the same day to talk through what's going on and figure out a time that works for you.</p>
+            </div>
           </div>
           <div class="tl-item reveal rd1">
             <div class="tl-marker"><div class="tl-dot">02</div><div class="tl-line"></div></div>
-            <div class="tl-content"><div class="tl-title">We Assess the Problem</div><p class="tl-body">We come out, look at what's actually going on, and give you a straight answer. No inflated diagnoses, no manufactured urgency.</p></div>
+            <div class="tl-content">
+              <div class="tl-title">We Come Out and Look</div>
+              <p class="tl-body">We show up, look at what's actually happening, and give you a straight assessment. No inflated diagnoses, no manufactured urgency to push a bigger job than you need.</p>
+            </div>
           </div>
           <div class="tl-item reveal rd2">
             <div class="tl-marker"><div class="tl-dot">03</div><div class="tl-line"></div></div>
-            <div class="tl-content"><div class="tl-title">You Get a Clear Quote</div><p class="tl-body">Written estimate before we start anything. You know exactly what it costs and why. No surprises on invoice day.</p></div>
+            <div class="tl-content">
+              <div class="tl-title">Written Quote Before We Start</div>
+              <p class="tl-body">You get a written estimate before a wrench turns. You know what it costs, what's included, and why. No surprise line items when the invoice shows up.</p>
+            </div>
           </div>
           <div class="tl-item reveal rd3">
             <div class="tl-marker"><div class="tl-dot">04</div><div class="tl-line"></div></div>
-            <div class="tl-content"><div class="tl-title">We Do the Work</div><p class="tl-body">Skilled crew, clean worksite, on-schedule delivery. We treat your property like it matters because it does.</p></div>
+            <div class="tl-content">
+              <div class="tl-title">We Do the Work</div>
+              <p class="tl-body">Skilled crew, clean worksite, on-schedule delivery. We treat your property with respect because we live in the same community as you do.</p>
+            </div>
           </div>
           <div class="tl-item reveal rd4">
             <div class="tl-marker"><div class="tl-dot">05</div></div>
-            <div class="tl-content"><div class="tl-title">Done Right, Guaranteed</div><p class="tl-body">We don't leave until it's done right. If something's off, we fix it. That's the deal.</p></div>
+            <div class="tl-content">
+              <div class="tl-title">Done Right, Backed Up</div>
+              <p class="tl-body">We don't leave until it's right. If something is off, we fix it. That's the whole deal and it's been the deal for 21 years.</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="why-panel reveal rd2">
         <div class="why-title">Why Chelan County Calls Us</div>
         <div class="why-list">
-          <div class="why-item"><div class="why-check">✓</div><div><div class="why-item-title">We Show Up On Time</div><p>No "between 8 and 5 sometime." We give you a time and we keep it.</p></div></div>
-          <div class="why-item"><div class="why-check">✓</div><div><div class="why-item-title">Straight Pricing</div><p>Written quote before work starts. What you see is what you pay.</p></div></div>
-          <div class="why-item"><div class="why-check">✓</div><div><div class="why-item-title">21 Years of Experience</div><p>Commercial, residential, new builds, remodels, service. All of it, done right.</p></div></div>
-          <div class="why-item"><div class="why-check">✓</div><div><div class="why-item-title">Licensed & Bonded</div><p>Fully licensed and insured in Washington State. Certificate available on request.</p></div></div>
-          <div class="why-item"><div class="why-check">✓</div><div><div class="why-item-title">Local & Accountable</div><p>We live here. Our reputation in this community matters to us more than any single job.</p></div></div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">We Show Up On Time</div>
+              <p>Not "between 8 and 5 sometime." We give you a real time and we keep it. Your schedule matters.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Straight Pricing</div>
+              <p>Written quote before work starts. What we quote is what you pay. No exceptions.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">21 Years of Experience</div>
+              <p>Commercial, residential, new builds, remodels, service work. All of it, done properly.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Fully Licensed &amp; Bonded</div>
+              <p>Washington State licensed and insured. Certificate available before any work starts.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Actually Local</div>
+              <p>We live here. Our name in this community means something to us and we protect it on every job.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Emergency Response</div>
+              <p>When something goes wrong at the worst time, call us. We move fast on emergency service.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -832,14 +1038,14 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 </section>
 
 <!-- AREAS -->
-<section class="s-bg-mid" id="areas">
+<section class="s-bg-dark" id="areas">
   <div class="container">
     <div class="s-header" style="margin-bottom:48px;">
       <div>
         <p class="label reveal">Where We Work</p>
         <h2 class="s-title reveal rd1">Service<br><span class="ab">Areas</span></h2>
       </div>
-      <p class="s-body reveal rd2">Serving Chelan County and surrounding communities. Don't see your city listed? Call us. We likely cover it.</p>
+      <p class="s-body reveal rd2">Serving Chelan County and the surrounding communities. Don't see your city? Call us anyway. Chances are we cover it.</p>
     </div>
     <div class="areas-grid">
       <div class="area-chip reveal"><span class="area-dot"></span><span class="area-name">Entiat, WA</span></div>
@@ -855,22 +1061,44 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 </section>
 
 <!-- FAQ -->
-<section class="s-bg-dark" id="faq">
+<section class="s-bg-mid" id="faq">
   <div class="container">
     <div class="faq-grid">
       <div>
         <p class="label reveal" style="margin-bottom:16px;">Questions</p>
         <h2 class="s-title reveal rd1" style="font-size:clamp(2.5rem,5vw,5rem);margin-bottom:16px;">FAQ</h2>
-        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:2rem;" class="reveal rd2">Straight answers. No runaround. Still have questions? Pick up the phone.</p>
+        <p style="font-size:1rem;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:2rem;" class="reveal rd2">Straight answers, no runaround. Still have questions? Pick up the phone and ask us directly.</p>
         <div class="reveal rd3"><a href="tel:+15098606455" class="btn btn-red">(509) 860-6455</a></div>
       </div>
       <div class="faq-list reveal rd2">
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What services do you offer?<span class="faq-arrow">+</span></button><div class="faq-a">We handle commercial plumbing, new residential construction, remodels, and service work. That includes water heaters, drain cleaning, pipe repair, radiant floor heating, rough-in plumbing for new builds, bathroom and kitchen remodels, and emergency service calls.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you handle commercial jobs?<span class="faq-arrow">+</span></button><div class="faq-a">Yes. We have over 21 years of commercial plumbing experience across Chelan County. Restaurants, retail, industrial, multi-unit residential. We've done it all and we know how to work with general contractors and stay on schedule.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How quickly can you respond?<span class="faq-arrow">+</span></button><div class="faq-a">For emergency calls, we move fast. For standard service requests, we typically get back to you the same day and can often schedule within the week depending on workload. Fill out the form or call us directly for the quickest response.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured?<span class="faq-arrow">+</span></button><div class="faq-a">Yes. Fully licensed and insured in Washington State. We can provide a certificate of insurance before any work starts. No shortcuts, no workarounds.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is pricing determined?<span class="faq-arrow">+</span></button><div class="faq-a">Every job is different. We come out, assess the actual scope, and give you a written estimate before any work starts. What we quote is what you pay. No hidden fees, no surprise line items on the invoice.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What areas do you serve?<span class="faq-arrow">+</span></button><div class="faq-a">Primarily Chelan County including Entiat, Wenatchee, Chelan, Malaga, Leavenworth, Cashmere, East Wenatchee, and surrounding areas. If you're not sure we cover your location, just call us.</div></div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What services do you offer?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">We handle commercial plumbing, new residential construction, remodels, and full service work. That covers water heaters, drain cleaning, pipe repair, radiant floor heating, rough-in plumbing for new builds, bathroom and kitchen remodels, and emergency service calls. If it involves water or heat, we probably do it.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you handle commercial jobs?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Yes, and we're comfortable with them. Over 21 years of commercial work across Chelan County. Restaurants, retail, industrial, multi-unit residential. We know how to work with GCs, stay on schedule, and communicate when something needs to change.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How quickly can you respond?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">For emergencies we move as fast as we can. For standard jobs we typically respond the same day and can get something on the schedule within the week depending on what's going on. Call us directly for the fastest response.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Yes. Fully licensed and insured in Washington State. We can get you a certificate of insurance before any work starts. No workarounds, no shortcuts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How does pricing work?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Every job is different so we come out, look at what's actually there, and give you a written estimate before anything starts. What we quote is what you pay. No hidden fees, no line items that appeared out of nowhere on invoice day.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What areas do you serve?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Primarily Chelan County including Entiat, Wenatchee, Chelan, Malaga, Leavenworth, Cashmere, East Wenatchee, and surrounding areas. Not sure if we cover your location? Just call and we'll tell you straight.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer free estimates?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Yes, always. We come out, look at the job, and give you a written estimate at no charge. No strings, no pressure, no invoice for the time we spent looking at it.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -882,7 +1110,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
     <div class="cta-inner">
       <div class="reveal">
         <h2 class="display cta-title">Something Need<br><span style="color:var(--sky-lt)">Fixing?</span></h2>
-        <p class="cta-sub">Don't let a plumbing problem get worse. Get a free estimate from a crew that knows what they're doing and stands behind the work.</p>
+        <p class="cta-sub">Don't let a plumbing problem sit and get worse. Get a free estimate from a crew that knows what they're doing and has been doing it here for 21 years.</p>
       </div>
       <div class="reveal rd2" style="display:flex;flex-direction:column;gap:12px;align-items:flex-end;">
         <a href="#contact" class="btn btn-red" style="font-size:0.88rem;padding:18px 36px;">Get a Free Quote →</a>
@@ -922,15 +1150,15 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
               <option>Remodel / Rough-In</option>
               <option>Radiant Floor Heating</option>
               <option>Commercial Plumbing</option>
-              <option>Not Sure</option>
+              <option>Not Sure Yet</option>
             </select>
           </div>
           <div class="fg form-full contact-fg">
             <label>Tell Us About the Job</label>
-            <textarea placeholder="Describe the issue, your timeline, or any questions you have..."></textarea>
+            <textarea placeholder="Describe the issue, your timeline, property type, or any questions you have..."></textarea>
           </div>
           <button type="submit" class="btn btn-red" style="margin-top:4px;">Send My Request →</button>
-          <div id="contactSuccess" style="display:none;margin-top:12px;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;color:#5af;letter-spacing:0.06em;">Request received. We'll be in touch today.</div>
+          <div id="contactSuccess" style="display:none;margin-top:12px;font-family:'Barlow Condensed',sans-serif;font-size:0.83rem;font-weight:700;color:#5af;letter-spacing:0.06em;">Request received. We'll be in touch today.</div>
         </form>
       </div>
       <div class="contact-info reveal rd2">
@@ -944,13 +1172,17 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
         </div>
         <div class="info-block">
           <div class="info-block-label">Business Hours</div>
-          <div class="info-block-val">Monday to Friday: 7am to 5pm<br>Emergency service available</div>
+          <div class="info-block-val">Monday to Friday: 7am to 5pm<br><span style="color:var(--red-lt);font-size:0.88rem;">Emergency service available</span></div>
         </div>
         <div class="info-block">
           <div class="info-block-label">Response Time</div>
-          <div class="info-block-val">We respond to all requests same day. For emergencies, call us directly for fastest response.</div>
+          <div class="info-block-val">We respond to all requests same day. For emergencies, call us directly for the fastest response.</div>
         </div>
-        <a href="tel:+15098606455" class="btn btn-sky" style="margin-top:0.5rem;">
+        <div class="info-block">
+          <div class="info-block-label">Estimates</div>
+          <div class="info-block-val">Always free. No strings attached. We come out, look at it, and tell you what it takes.</div>
+        </div>
+        <a href="tel:+15098606455" class="btn btn-sky" style="margin-top:0.25rem;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Call Us Now
         </a>
@@ -964,9 +1196,12 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   <div class="container">
     <div class="footer-grid">
       <div>
-        <span class="footer-logo-main">Plumber Boys LLC</span>
-        <span class="footer-logo-sub">Chelan County, Washington</span>
-        <p class="footer-desc">Locally owned plumbing company with over 21 years of experience in commercial, new residential, remodel, and service work across Chelan County, WA.</p>
+        <img
+          class="footer-logo-img"
+          src="https://github.com/user-attachments/assets/09ed5e59-b21d-4758-b45e-a99de78d3b2a"
+          alt="Plumber Boys LLC"
+        />
+        <p class="footer-desc">Locally owned plumbing company with over 21 years of experience in commercial, new residential, remodel, and service work across Chelan County, WA. We show up, we do it right, we stand behind it.</p>
         <a href="#contact" class="btn btn-red" style="font-size:0.75rem;padding:12px 22px;">Get a Free Quote</a>
       </div>
       <div>
@@ -977,6 +1212,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
           <li><a href="#about">About</a></li>
           <li><a href="#gallery">Our Work</a></li>
           <li><a href="#process">Process</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -989,6 +1225,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
           <li><a href="#services">Remodels</a></li>
           <li><a href="#services">Radiant Floor Heating</a></li>
           <li><a href="#services">Commercial Plumbing</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
         </ul>
       </div>
     </div>
@@ -1002,11 +1239,11 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
 <script>
   // Nav scroll
   const nav = document.getElementById('mainNav');
-  const hero = document.getElementById('hero');
+  const heroEl = document.getElementById('hero');
   const floatCta = document.getElementById('floatCta');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
-    floatCta.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
+    floatCta.classList.toggle('visible', heroEl.getBoundingClientRect().bottom < 0);
   }, { passive: true });
 
   // Hamburger
@@ -1032,7 +1269,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
   // Reveal
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // FAQ
@@ -1050,7 +1287,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
     const orig = btn.innerHTML;
     btn.innerHTML = 'Sending...'; btn.disabled = true;
     setTimeout(() => {
-      btn.innerHTML = "✓ Got it. We'll be in touch today.";
+      btn.innerHTML = "Got it. We'll be in touch today.";
       btn.style.background = 'var(--sky)';
       const s = document.getElementById('contactSuccess');
       if (s) s.style.display = 'block';
@@ -1058,7 +1295,7 @@ footer { background: #050810; border-top: 1px solid rgba(58,123,213,0.1); paddin
       setTimeout(() => {
         btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false;
         if (s) s.style.display = 'none';
-      }, 5000);
+      }, 5500);
     }, 1100);
   }
 </script>
